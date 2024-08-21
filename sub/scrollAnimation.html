@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollAnimationImage</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #222;
+    }
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 6em;
+      min-height: 70vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .container .item {
+      transition: 0.2s;
+    }
+
+    @media (max-width: 360px) {
+
+    }
+  </style>
+  <body>
+    <section>Scroll Down</section>
+    <div class="container">
+      <img src="image/img1.png" alt="" class="item" />
+      <img src="image/img2.png" alt="" class="item" />
+      <img src="image/img1.png" alt="" class="item" />
+      <img src="image/img2.png" alt="" class="item" />
+      <img src="image/img1.png" alt="" class="item" />
+      <img src="image/img2.png" alt="" class="item" />
+    </div>
+    <section>Scroll Up</section>
+    <script>
+      let options = {
+        threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      };
+
+      let callback = (entries, observer) => {
+        entries.forEach((entry) => {
+          entry.target.style.scale = entry.intersectionRatio;
+        });
+      };
+
+      let observer = new IntersectionObserver(callback, options);
+
+      for (const target of document.querySelectorAll(".item")) {
+        observer.observe(target);
+      }
+    </script>
+  </body>
+</html>

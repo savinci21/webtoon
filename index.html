@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebToon Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ccc;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    background-color: #333;
+}
+
+.header h1 {
+    margin: 10px;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+
+}
+
+.gallery-item {
+    position: relative;
+    flex: 1 1 calc(20% - 20px);  /* 화면에 이미지 갯수 */
+    margin: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-text {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* 모바일용 스타일 */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 1 1 100%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>WebToon Gallery</h1>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item" id = "image1">
+            <img src="image/img1.png" alt="Image 1">
+            <div class="gallery-item-text">Image 1 Description</div>
+        </div>
+        <div class="gallery-item" id = "image2">
+            <img src="image/img2.png" alt="Image 2">
+            <div class="gallery-item-text">Image 2 Description</div>
+        </div>
+       <div class="gallery-item" id = "image3">
+            <img src="image/img3.png" alt="Image 1">
+            <div class="gallery-item-text">Image 1 Description</div>
+        </div>
+        <div class="gallery-item" id = "image4">
+            <img src="image/img4.png" alt="Image 2">
+            <div class="gallery-item-text">Image 2 Description</div>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('image1').addEventListener('click', function()
+    {
+      window.location.href = 'sub/webtoon1.html';
+    })
+          document.getElementById('image2').addEventListener('click', function()
+    {
+      window.location.href = 'sub/webtoon2.html';
+    })
+          document.getElementById('image3').addEventListener('click', function()
+    {
+      window.location.href = 'sub/webtoon3.html';
+    })
+          document.getElementById('image4').addEventListener('click', function()
+    {
+      window.location.href = 'sub/webtoon4.html';
+    })
+    </script>
+</body>
+</html>
+
